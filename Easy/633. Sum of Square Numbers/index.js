@@ -2,7 +2,7 @@
 Given a non-negative integer c, your task is to decide whether there're two integers a and b such that a2 + b2 = c.
 */
 
-// Solution #1 - Faster
+// Faster Solution
 var judgeSquareSum = function(c) {
   var root = Math.floor(Math.sqrt(c));
   for (var i = root; i >= 0; i--) {
@@ -11,7 +11,7 @@ var judgeSquareSum = function(c) {
   return false;
 };
 
-// Solution #2 - Slower
+// My Solution - Slower
 var judgeSquareSum = function(c) {
   var sum = 0;
   var low = 0;

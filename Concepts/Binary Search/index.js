@@ -1,3 +1,5 @@
+// Time Complexity: O
+
 //Binary Search on a Sorted Array (Iterative Approach)
 let arr = [1, 3, 5, 7, 8, 9];
 let x = 5;
@@ -22,7 +24,6 @@ let iterativeFunction = function(arr, x) {
       end = mid - 1; // move left by decreasing end index by 1
     }
   }
-
   return false;
 };
 

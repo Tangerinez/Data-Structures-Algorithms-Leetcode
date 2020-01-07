@@ -4,7 +4,7 @@ Given a positive integer num, write a function which returns True if num is a pe
 Note: Do not use any built-in library function such as sqrt.
 */
 
-// Solution #1 - Faster (Binary Search)
+// Faster Solution (Binary Search)
 const isPerfectSquare = num => {
   var low = 1;
   var high = num;
@@ -22,7 +22,7 @@ const isPerfectSquare = num => {
   return false;
 };
 
-// Solution #2 - Slower
+// My Solution - Slower
 var isPerfectSquare = function(num) {
   for (var i = 0; i <= num; i++) {
     if (i * i === num) {
