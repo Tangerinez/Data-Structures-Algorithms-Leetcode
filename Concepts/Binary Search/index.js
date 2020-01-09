@@ -8,7 +8,7 @@ let iterativeFunction = function(arr, x) {
   let start = 0;
   let end = arr.length - 1;
 
-  // Iterate while start not meets end
+  // Iterate while start doesn't meet end
   while (start <= end) {
     // Find the mid index
     let mid = Math.floor((start + end) / 2);

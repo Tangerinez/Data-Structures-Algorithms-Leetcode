@@ -16,10 +16,10 @@ const insertionSort = arr => {
     j = i;
 
     while (j > 0 && arr[j - 1] > el) {
-      // if the index isn't 0
-      // if the value to left is bigger, move the current value to the left by 1 indices
+      // if the index is greater than 0
+      // if the value to left is bigger
       arr[j] = arr[j - 1];
-      // move the value to the left of the current value into it's place
+      // move the higher left value into the lower value's place - the original indices of this left value [j-1] will be replaced by the smaller value
       j--;
     }
     arr[j] = el; // sets the current value in the appropriate indices once the loop breaks
