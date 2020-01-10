@@ -1,2 +1,3 @@
-# Leetcode-Practice
-Leetcode Practice Problems organized by Easy, Medium, and Hard difficulty
+# Interview Prep on Data Structures, Algorithms, and Practice Problems
+
+
