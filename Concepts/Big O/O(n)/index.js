@@ -4,11 +4,6 @@ O(n) is Linear Time
 - As our number of inputs increase, # of operations increase as well
 - The "Big O" depends on the number (n) of inputs
 
-Rule 1: Worst Case
-Rule 2: Remove Constants
-Rule 3: Different Terms for Inputs
-Rule 4: Drop Non-Dominants
-
 **Loops are linear time**
 */
 
@@ -65,3 +60,24 @@ function compressBoxesTwice(boxes, boxes2) {
 // Runtime Complexity: O(a + b)
 // Rule 3: Since there are 2 different parameters that are being looped over, you don't add their runtimes together
 // Rule 3: If the loops were nested, the Runtime Complexity would be O(a*b)
+
+// Example 4
+function printAllNumbersThenAllPairSums(numbers) {
+  console.log("these are the numbers:");
+  numbers.forEach(function(number) {
+    // O(n)
+    console.log(number);
+  });
+
+  console.log("and these are their sums:");
+  numbers.forEach(function(firstNumber) {
+    numbers.forEach(function(secondNumber) {
+      console.log(firstNumber + secondNumber);
+    });
+  });
+}
+
+printAllNumbersThenAllPairSums([1, 2, 3, 4, 5]);
+
+// Runtime Complexity: O(n+n^2)
+// Rule 4: By dropping non-dominant terms, the actual Runtime Complexity is O(n^2)
