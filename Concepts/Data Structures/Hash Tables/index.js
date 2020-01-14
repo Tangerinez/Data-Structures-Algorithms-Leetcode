@@ -9,6 +9,15 @@ insert: O(1)
 lookup: O(1)
 delete: O(1)
 search: O(1)
+
+Pros:
+- Fast Lookups (Good collision resolution needed)
+- Fast inserts
+- Flexible Keys
+
+Cons:
+- Unordered
+- Slow key iteration
 */
 
 // Ex) basket.grapes = 10000
@@ -41,7 +50,7 @@ let user = {
 
 user.age; // lookup: O(1)
 user.spell = "abra kadabra"; // insert: O(1)
-user.scream(); // lookup: O(1)
+// user.scream(); // lookup: O(1)
 
 // Map
 const a = new Map();
@@ -51,7 +60,7 @@ const a = new Map();
 // Sets
 const b = new Set(); // Only stores the keys, no values
 
-/* Hash Table Implementation */
+/* Hash Table Implementation - Under the Hood*/
 class HashTable {
   constructor(size) {
     this.data = new Array(size);
@@ -94,7 +103,43 @@ class HashTable {
     }
     return undefined;
   };
+
+  keys = () => {
+    const keysArray = [];
+    for (let i = 0; i < this.data.length; i++) {
+      if (this.data[i]) {
+        keysArray.push(this.data[i][0][0]);
+      }
+    }
+    return keysArray;
+  };
 }
 const myHashTable = new HashTable(30); // Instantiate a Hash Table
 myHashTable.set("lemon", 10000);
-console.log(myHashTable.get("lemon"));
+// console.log(myHashTable.get("lemon"));
+// console.log(myHashTable.keys());
+
+/* Example - Google Interview Question */
+/* Given an array, give the first recurring character */
+
+// [2,5,1,2,3,5,1,2,4] => 2
+// [2,3,4,5] => undefined
+
+// My Solution - Use an object
+const repeatChar = arr => {
+  let hash = {};
+  for (let i = 0; i < arr.length; i++) {
+    if (!hash[arr[i]]) {
+      hash[arr[i]] = true;
+    } else {
+      return arr[i];
+    }
+  }
+  return undefined;
+};
+// Runtime Complexity: O(n)
+// Space Complexity: O(n)
+console.log(repeatChar([2, 5, 5, 2, 3, 5, 1, 2, 4]));
+console.log(repeatChar([2, 3, 4, 2]));
+console.log(repeatChar([]));
+console.log(repeatChar([0, 0]));
