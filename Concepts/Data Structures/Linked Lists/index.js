@@ -37,6 +37,19 @@ Singly vs. Doubly Linked Lists
     
 */
 
+// Simplified Pros & Cons
+/* 
+Pros:
+- Fast Insertion
+- Fast Deletion
+- Ordered
+- Flexible Size
+
+Cons: 
+- Slow Lookup
+- More memory
+*/
+
 // Ex)
 const basket = ["apples", "grapes", "pears"];
 
@@ -53,8 +66,8 @@ let obj1 = { a: true };
 let obj2 = obj1; // Pointer => Reference
 obj1.a = "booya";
 delete obj1;
-console.log(obj1); // reference error - no obj1
-console.log(obj2); // { a: true }
+// console.log(obj1); // reference error - no obj1
+// console.log(obj2); // { a: true }
 
 // Example - Singly Linked List
 // 10 ---> 5 ----> 16
@@ -159,20 +172,103 @@ console.log(obj2); // { a: true }
 // New node links to the node before it AND after it
 // Allow us to traverse our list backwards
 // Cons - More memory
+// class Node {
+//   constructor(value) {
+//     this.value = value;
+//     this.next = null;
+//     this.prev = null;
+//   }
+// }
+
+// class DoublyLinkedList {
+//   constructor(value) {
+//     this.head = {
+//       value: value,
+//       next: null,
+//       prev: null
+//     };
+//     this.tail = this.head;
+//     this.length = 1;
+//   }
+
+//   append = value => {
+//     const newNode = new Node(value);
+//     newNode.prev = this.tail;
+//     this.tail.next = newNode; // makes the most recent "next" value, or last value => { value: value, next: null}
+//     this.tail = newNode; // different than above
+//     this.length++;
+//   };
+
+//   prepend = value => {
+//     const newNode = new Node(value);
+//     newNode.next = this.head; // pointer { value: value, next: this.head, prev: null}
+//     this.head.prev = newNode;
+//     this.head = newNode; // different than above
+//     this.length++;
+//   };
+
+//   printList = () => {
+//     const array = [];
+//     let currentNode = this.head;
+//     while (currentNode !== null) {
+//       array.push(currentNode.value);
+//       currentNode = currentNode.next; // traverses down the list by going to the next value
+//     }
+//     return array;
+//   };
+
+//   insert = (index, value) => {
+//     const newNode = new Node(value);
+//     // check params
+//     if (index >= this.length) {
+//       // if index is greater than the length, just add it to the end of the list
+//       return this.append(value);
+//     }
+//     const leaderNode = this.traverseToIndex(index - 1); // we want to get to the this.next node right before our index (index-1), because this node will be the "leader"
+//     // O(n)
+//     const follower = leaderNode.next; // this is the reference to the current value at our index of interest!
+//     leaderNode.next = newNode;
+//     newNode.prev = leaderNode;
+//     newNode.next = follower;
+//     follower.prev = newNode;
+//     this.length++;
+//   };
+
+//   traverseToIndex = index => {
+//     // check params
+//     let counter = 0;
+//     let currentNode = this.head;
+//     while (counter !== index) {
+//       // O(n)
+//       // traverse nodes until the counter reaches the index
+//       currentNode = currentNode.next;
+//       counter++;
+//     }
+//     return currentNode; // return the current node at our index of interest
+//   };
+
+//   remove = index => {
+//     // check params
+//     const leaderNode = this.traverseToIndex(index - 1); // O(n)
+//     const unwantedNode = leaderNode.next; // node that I don't want
+//     leaderNode.next = unwantedNode.next; // pointer from unwanted node to the next node
+//     this.length--;
+//   };
+// }
+
+/* Common Interview Question - Reverse a Linked List! */
 class Node {
   constructor(value) {
     this.value = value;
     this.next = null;
-    this.prev = null;
   }
 }
 
-class DoublyLinkedList {
+class LinkedList {
   constructor(value) {
     this.head = {
       value: value,
-      next: null,
-      prev: null
+      next: null
     };
     this.tail = this.head;
     this.length = 1;
@@ -180,7 +276,6 @@ class DoublyLinkedList {
 
   append = value => {
     const newNode = new Node(value);
-    newNode.prev = this.tail;
     this.tail.next = newNode; // makes the most recent "next" value, or last value => { value: value, next: null}
     this.tail = newNode; // different than above
     this.length++;
@@ -188,8 +283,7 @@ class DoublyLinkedList {
 
   prepend = value => {
     const newNode = new Node(value);
-    newNode.next = this.head; // pointer { value: value, next: this.head, prev: null}
-    this.head.prev = newNode;
+    newNode.next = this.head; // pointer
     this.head = newNode; // different than above
     this.length++;
   };
@@ -213,11 +307,9 @@ class DoublyLinkedList {
     }
     const leaderNode = this.traverseToIndex(index - 1); // we want to get to the this.next node right before our index (index-1), because this node will be the "leader"
     // O(n)
-    const follower = leaderNode.next; // this is the reference to the current value at our index of interest!
+    const holdingPointer = leaderNode.next; // this is the reference to the current value at our index of interest!
     leaderNode.next = newNode;
-    newNode.prev = leaderNode;
-    newNode.next = follower;
-    follower.prev = newNode;
+    newNode.next = holdingPointer;
     this.length++;
   };
 
@@ -241,4 +333,47 @@ class DoublyLinkedList {
     leaderNode.next = unwantedNode.next; // pointer from unwanted node to the next node
     this.length--;
   };
+
+  reverse = () => {
+    if (!this.head.next) {
+      // check if only 1 element
+      return this.head;
+    }
+    let first = this.head; // first node
+    this.tail = this.head; // set last node to be first node right off the bat
+    let second = first.next; // second node
+    while (second) {
+      // as long as second variable exists
+      const temp = second.next; // temp => third
+      second.next = first; /* third node => first */
+      first = second; /* first node becomes second node */
+      second = temp; /* second node becomes third node */
+    }
+    this.head.next = null; // need to have the first value point to null so it's now the last value
+    this.head = first;
+  };
 }
+
+const myLinkedList = new LinkedList(10);
+myLinkedList.append(5);
+myLinkedList.prepend(3);
+myLinkedList.insert(2, 99);
+myLinkedList.append(17);
+console.log(myLinkedList.printList());
+myLinkedList.reverse();
+console.log(myLinkedList.printList());
+
+// Explanation
+// We are changing the value of "first" and "second" every iteration of the loop, so that we change the pointers to be in the opposite direction
+//   Ex) [3,10,99,5,17]
+//   1) We start at elements two left-most elements
+//   2) First we want to switch the pointer from L->R to R->L
+//   3) Then, we want to shift over 1 indices so that element 2 is now element 1, and element 3 is now element 2
+//   4) Repeat steps 1-3 (loop), until in step 4 when element 2 becomes null
+/* 
+Before R1: first = 3 and pointer => 10, second = 10
+After R1: first = 10 and pointer => 3, second = 99
+After R2: first = 99 and pointer => 10, second = 5
+After R3: first = 5 and pointer => 99, second = 17
+After R4: first = 17 and pointer => 5, second = null
+*/
