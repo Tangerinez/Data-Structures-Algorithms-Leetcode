@@ -51,3 +51,16 @@ Number becomes too large to store in RAM (overflow)
 _Point_ Each data type has a number of bits that are associated with it, which the CPU reads and interprets
 
 - Our goal is to minimize the operation that we need to do for the CPU to get and write information from RAM
+
+**Pros and Cons of Arrays**
+Pros:
+
+- Fast Lookups
+- Fast push/pop
+- Ordered
+
+Cons:
+
+- Slow inserts
+- Slow deletes
+- Fixed size if using static array
