@@ -15,9 +15,9 @@ const c = 100;
 // - Global variables are bad because if unused, they can take up space in the memory heap
 
 // Call Stack?
-console.log("1"); // Reads first line => Gets put into call stack => Runs the code => Remove it from call stack
-console.log("2"); // Reads second line => Gets put into call stack => Runs the code => Remove it
-console.log("3");
+// console.log("1"); // Reads first line => Gets put into call stack => Runs the code => Remove it from call stack
+// console.log("2"); // Reads second line => Gets put into call stack => Runs the code => Remove it
+// console.log("3");
 
 // More complex call stack example
 const one = () => {
@@ -26,7 +26,7 @@ const one = () => {
   };
   two();
 };
-one();
+// one();
 /* Call Stack Order of the above function:
 console.log("4") => prints out 4, remove it from call stack
 two() => remove two()
@@ -44,19 +44,19 @@ one() => remove one()
 function foo() {
   foo();
 }
-foo();
+// foo();
 // Stack overflow caused by recursion.
 // foo() gets added to the call stack endlessly
 
 // Javascript can be "non-blocking"
 // Asynchronous Programming
 
-// Example
-console.log("1");
-setTimeout(() => {
-  console.log("2");
-});
-console.log("3");
+// // Example
+// console.log("1");
+// setTimeout(() => {
+//   console.log("2");
+// });
+// console.log("3");
 // Output: 1 3 2
 
 /* How can Asynchronous Programming work?
@@ -73,12 +73,12 @@ In order for JS to run, we need the V8 engine AND Javascript Run-Time Environmen
         - Event Loop
      */
 
-// Same example as above
-console.log("1");
-setTimeout(() => {
-  console.log("2");
-}, 2000);
-console.log("3");
+// // Same example as above
+// console.log("1");
+// setTimeout(() => {
+//   console.log("2");
+// }, 2000);
+// console.log("3");
 /* 
 // Call Stack
 console.log("1");
@@ -95,10 +95,10 @@ callback() => Ready to run since setTimeout() time has passed
 Event Loop    // If call stack is empty, moves callbacks back into call stack
 */
 
-// Another tricky example
-console.log("1");
-setTimeout(() => {
-  console.log("2");
-}, 0);
-console.log("3");
+// // Another tricky example
+// console.log("1");
+// setTimeout(() => {
+//   console.log("2");
+// }, 0);
+// console.log("3");
 // Output: 1 3 2 => setTimeout() still got entered into Web APIs, Callback Queue, and Event Loop. By the time all of that happened, the call stack had already finished logging 3
