@@ -83,22 +83,80 @@ class Stack {
       // length of 1
       this.bottom = null; // this becomes null since length will be decreased to 0
     }
-    const newTop = this.top.next; // reference to what the new top will be
-    this.top = newTop;
+    const holdingPointer = this.top; // we HAVE to hold a pointer to this element, or else it will get lost in memory!
+    this.top = this.top.next;
     this.length--;
   };
 }
 
-const myStack = new Stack();
-myStack.push("Google");
-console.log(myStack);
-myStack.push("Udemy");
-console.log(myStack);
-myStack.push("Discord");
-console.log(myStack);
-myStack.pop();
-console.log(myStack);
-myStack.pop();
-console.log(myStack);
-myStack.pop();
-console.log(myStack);
+// Example - Stack Implementation using Arrays
+class Stack2 {
+  constructor() {
+    this.array = [];
+  }
+  peek = () => {
+    return this.array[this.array.length - 1];
+  };
+  push = value => {
+    this.array.push(value);
+  };
+  pop = () => {
+    this.array.pop();
+  };
+}
+
+// Example - Queue Implementation using Linked Lists
+class Node2 {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
+class Queue {
+  constructor() {
+    this.first = null;
+    this.last = null;
+    this.length = 0;
+  }
+  peek = () => {
+    return this.first.value;
+  };
+  enqueue = value => {
+    const newNode = new Node2(value);
+    if (!this.first) {
+      this.first = newNode;
+      this.last = newNode;
+    } else {
+      this.last.next = newNode; // the last in line is now pointing to newNode
+      this.last = newNode; // the new Node is now last
+    }
+    this.length++;
+  };
+  dequeue = () => {
+    if (this.length === 0) {
+      return null;
+    }
+    if (this.first === this.last) {
+      // length will decrease by 1 after dequeue
+      this.last = null;
+    }
+    const holdingPointer = this.first; // we HAVE to hold a pointer to this element, or else it will get lost in memory!
+    this.first = this.first.next; // becomes the new first element
+    this.length--;
+  };
+}
+
+const myQueue = new Queue();
+myQueue.enqueue("First");
+console.log(myQueue);
+myQueue.enqueue("Second");
+console.log(myQueue);
+myQueue.enqueue("Third");
+console.log(myQueue);
+myQueue.dequeue();
+console.log(myQueue);
+myQueue.dequeue();
+console.log(myQueue);
+myQueue.dequeue();
+console.log(myQueue);
