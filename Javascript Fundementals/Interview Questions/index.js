@@ -184,3 +184,10 @@ console.log(7 > 6 > 5);?
   }
 */
 // console.log(x()); // undefined => return shouldn't have a line break, or else it will act as "return;"
+
+/* Q14) What is hoisting */
+// Variable can be declared after it has been used
+// A variable can be used before it has been declared
+x = 5;
+var x; // this declaration gets hoisted above x = 5 so that the variable assignment doesn't error out
+// let and const are not hoisted

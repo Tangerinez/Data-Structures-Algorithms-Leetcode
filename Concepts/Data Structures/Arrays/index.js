@@ -29,44 +29,44 @@ Allow us to copy and rebuild an array at a new location with/without more memory
 */
 
 /* Implementing an Array - For demonstrating runtime with built-in JS methods */
-class MyArray {
-  constructor() {
-    this.length = 0;
-    this.data = {};
-  }
-  get(index) {
-    return this.data[index];
-  }
+// class MyArray {
+//   constructor() {
+//     this.length = 0;
+//     this.data = {};
+//   }
+//   get(index) {
+//     return this.data[index];
+//   }
 
-  push(item) {
-    this.data[this.length] = item;
-    this.length++;
-    return this.length;
-  }
+//   push(item) {
+//     this.data[this.length] = item;
+//     this.length++;
+//     return this.length;
+//   }
 
-  pop() {
-    const lastItem = this.data[this.length - 1];
-    delete lastItem; // delete keyword removes a property from an object
-    this.length--;
-    return this.data;
-  }
+//   pop() {
+//     const lastItem = this.data[this.length - 1];
+//     delete lastItem; // delete keyword removes a property from an object
+//     this.length--;
+//     return this.data;
+//   }
 
-  delete(index) {
-    const item = this.data[index];
-    this.shiftItems(index);
-  }
+//   delete(index) {
+//     const item = this.data[index];
+//     this.shiftItems(index);
+//   }
 
-  shiftItems(index) {
-    for (let i = index; i < this.length - 1; i++) {
-      this.data[i] = this.data[i + 1];
-    }
-    delete this.data[this.length - 1];
-    this.length--;
-  }
-}
+//   shiftItems(index) {
+//     for (let i = index; i < this.length - 1; i++) {
+//       this.data[i] = this.data[i + 1];
+//     }
+//     delete this.data[this.length - 1];
+//     this.length--;
+//   }
+// }
 
-const newArray = new MyArray(); // instantiate MyArray object
-newArray.push("hi"); // { 0: "hi" }
-newArray.push("you"); // { 0: "hi", 1: "you" }
-newArray.pop(); // { 0: "hi"}
-newArray.delete(0); // { }
+// const newArray = new MyArray(); // instantiate MyArray object
+// newArray.push("hi"); // { 0: "hi" }
+// newArray.push("you"); // { 0: "hi", 1: "you" }
+// newArray.pop(); // { 0: "hi"}
+// newArray.delete(0); // { }
