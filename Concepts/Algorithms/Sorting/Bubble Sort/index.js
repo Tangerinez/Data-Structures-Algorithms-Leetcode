@@ -14,7 +14,7 @@ const bubbleSort = array => {
     // Use nested loops to check for worst case scenario
     for (let j = 0; j < length; j++) {
       if (array[j] > array[j + 1]) {
-        let temp = array[j];
+        let temp = array[j]; // swapping values between indices
         array[j] = array[j + 1];
         array[j + 1] = temp;
       }
@@ -23,4 +23,4 @@ const bubbleSort = array => {
 };
 bubbleSort(numbers);
 console.log(numbers);
-// O(n^2)
+// O(n^2) => not the fastest sorting algorithm!
