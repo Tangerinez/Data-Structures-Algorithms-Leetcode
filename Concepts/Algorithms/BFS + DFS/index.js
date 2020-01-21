@@ -1,5 +1,6 @@
 /*
 BFS (Breadth First Search):
+    - *** Great for UNWEIGHTED graphs ***
     - Start with root node, and then level by level, traverse items from left to right until you find the item you're looking for, or until the tree ends
     - Uses additional memory, since we need to track every node and it's children in order
     - Runtime Complexity: O(n)
