@@ -148,7 +148,7 @@ let obj = function() {
 let x = obj();
 x.setI(2);
 x.setI(4);
-console.log(x.getI());
+console.log(x.getI()); // 4
 
 function makeAdder(x) {
   return function(y) {
