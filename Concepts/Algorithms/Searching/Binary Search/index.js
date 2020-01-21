@@ -1,4 +1,6 @@
-// Time Complexity: O
+// If data is sorted, we can be faster than O(n)
+// Divide and Conquer
+// Time Complexity: O(logN)
 
 //Binary Search on a Sorted Array (Iterative Approach)
 let arr = [1, 3, 5, 7, 8, 9];

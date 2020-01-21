@@ -3,7 +3,7 @@ Both are Linear data structures that allow us to traverse sequentially (only 1 d
 - Usually can only access the first or last element
 
 Stacks:
-- LIFO (Last item in is the First out)
+- LIFO (Last item in is the first one out)
 Ex) Browser History
 
 - lookup: O(n)
