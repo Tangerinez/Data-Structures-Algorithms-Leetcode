@@ -57,3 +57,36 @@ const fibonnaciBottomUp = n => {
 };
 // Runtime Complexity: O(n)
 // Space Complexity: O(1)
+
+/* Another DP Practice Example */
+/* Given 3 numbers {1, 3, 5}, we need to tell the total number of ways we can form a number 'N' 
+using the sum of the given three numbers. */
+// Ex) 6 => 8
+
+// 1. Compute state(n)
+/* Ex) Let's say our input is 7
+ - 3 ways to reach 7
+    - Adding 1 to all possible combinations of state(n = 6)
+    - Adding 3 to all possible combinations of state(n = 4)
+    - Adding 5 to all possible combinations of state(n = 2)
+
+    => This translates to state(n=7) = state(n=6) + state(n=4) + state(n=2)
+    => Which translates to state(n) = state(n-1) + state(n-3) + state(n-5)
+*/
+const solve = n => {
+  if (n < 0) return 0;
+  if (n === 1) return 1;
+  return solve(n - 1) + solve(n - 3) + solve(n - 5); // O(n^2) => Exponential
+};
+// We need to memoize this solution to reduce the runtime complexity
+let cache = {};
+const solve = n => {
+  if (n < 0) return 0;
+  if (n === 1) return 1;
+  if (cache[n]) {
+    return cache[n];
+  } else {
+    cache[n] = solve(n - 1) + solve(n - 3) + solve(n - 5);
+    return cache[n];
+  }
+};
