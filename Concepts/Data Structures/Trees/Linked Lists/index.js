@@ -83,178 +83,178 @@ delete obj1;
 //     }
 //   }
 // };
-// class Node {
-//   constructor(value) {
-//     this.value = value;
-//     this.next = null;
-//   }
-// }
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
 
-// class LinkedList {
-//   constructor(value) {
-//     this.head = {
-//       value: value,
-//       next: null
-//     };
-//     this.tail = this.head;
-//     this.length = 1;
-//   }
+class LinkedList {
+  constructor(value) {
+    this.head = {
+      value: value,
+      next: null
+    };
+    this.tail = this.head;
+    this.length = 1;
+  }
 
-//   append = value => {
-//     const newNode = new Node(value);
-//     this.tail.next = newNode; // makes the most recent "next" value, or last value => { value: value, next: null}
-//     this.tail = newNode; // different than above
-//     this.length++;
-//   };
+  append = value => {
+    const newNode = new Node(value);
+    this.tail.next = newNode; // makes the most recent "next" value, or last value => { value: value, next: null}
+    this.tail = newNode; // different than above
+    this.length++;
+  };
 
-//   prepend = value => {
-//     const newNode = new Node(value);
-//     newNode.next = this.head; // pointer
-//     this.head = newNode; // different than above
-//     this.length++;
-//   };
+  prepend = value => {
+    const newNode = new Node(value);
+    newNode.next = this.head; // pointer
+    this.head = newNode; // different than above
+    this.length++;
+  };
 
-//   printList = () => {
-//     const array = [];
-//     let currentNode = this.head;
-//     while (currentNode !== null) {
-//       array.push(currentNode.value);
-//       currentNode = currentNode.next; // traverses down the list by going to the next value
-//     }
-//     return array;
-//   };
+  printList = () => {
+    const array = [];
+    let currentNode = this.head;
+    while (currentNode !== null) {
+      array.push(currentNode.value);
+      currentNode = currentNode.next; // traverses down the list by going to the next value
+    }
+    return array;
+  };
 
-//   insert = (index, value) => {
-//     const newNode = new Node(value);
-//     // check params
-//     if (index >= this.length) {
-//       // if index is greater than the length, just add it to the end of the list
-//       return this.append(value);
-//     }
-//     const leaderNode = this.traverseToIndex(index - 1); // we want to get to the this.next node right before our index (index-1), because this node will be the "leader"
-//     // O(n)
-//     const holdingPointer = leaderNode.next; // this is the reference to the current value at our index of interest!
-//     leaderNode.next = newNode;
-//     newNode.next = holdingPointer;
-//     this.length++;
-//   };
+  insert = (index, value) => {
+    const newNode = new Node(value);
+    // check params
+    if (index >= this.length) {
+      // if index is greater than the length, just add it to the end of the list
+      return this.append(value);
+    }
+    const leaderNode = this.traverseToIndex(index - 1); // we want to get to the this.next node right before our index (index-1), because this node will be the "leader"
+    // O(n)
+    const holdingPointer = leaderNode.next; // this is the reference to the current value at our index of interest!
+    leaderNode.next = newNode;
+    newNode.next = holdingPointer;
+    this.length++;
+  };
 
-//   traverseToIndex = index => {
-//     // check params
-//     let counter = 0;
-//     let currentNode = this.head;
-//     while (counter !== index) {
-//       // O(n)
-//       // traverse nodes until the counter reaches the index
-//       currentNode = currentNode.next;
-//       counter++;
-//     }
-//     return currentNode; // return the current node at our index of interest
-//   };
+  traverseToIndex = index => {
+    // check params
+    let counter = 0;
+    let currentNode = this.head;
+    while (counter !== index) {
+      // O(n)
+      // traverse nodes until the counter reaches the index
+      currentNode = currentNode.next;
+      counter++;
+    }
+    return currentNode; // return the current node at our index of interest
+  };
 
-//   remove = index => {
-//     // check params
-//     const leaderNode = this.traverseToIndex(index - 1); // O(n)
-//     const unwantedNode = leaderNode.next; // node that I don't want
-//     leaderNode.next = unwantedNode.next; // pointer from unwanted node to the next node
-//     this.length--;
-//   };
-// }
+  remove = index => {
+    // check params
+    const leaderNode = this.traverseToIndex(index - 1); // O(n)
+    const unwantedNode = leaderNode.next; // node that I don't want
+    leaderNode.next = unwantedNode.next; // pointer from unwanted node to the next node
+    this.length--;
+  };
+}
 
-// const myLinkedList = new LinkedList(10);
-// myLinkedList.append(5);
-// myLinkedList.prepend(3);
-// myLinkedList.insert(2, 99);
-// myLinkedList.remove(2);
-// console.log(myLinkedList.printList());
+const myLinkedList = new LinkedList(10);
+myLinkedList.append(5);
+myLinkedList.prepend(3);
+myLinkedList.insert(2, 99);
+myLinkedList.remove(2);
+console.log(myLinkedList.printList());
 
 // Example - Doubly Linked List
 // New node links to the node before it AND after it
 // Allow us to traverse our list backwards
 // Cons - More memory
-// class Node {
-//   constructor(value) {
-//     this.value = value;
-//     this.next = null;
-//     this.prev = null;
-//   }
-// }
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+    this.prev = null;
+  }
+}
 
-// class DoublyLinkedList {
-//   constructor(value) {
-//     this.head = {
-//       value: value,
-//       next: null,
-//       prev: null
-//     };
-//     this.tail = this.head;
-//     this.length = 1;
-//   }
+class DoublyLinkedList {
+  constructor(value) {
+    this.head = {
+      value: value,
+      next: null,
+      prev: null
+    };
+    this.tail = this.head;
+    this.length = 1;
+  }
 
-//   append = value => {
-//     const newNode = new Node(value);
-//     newNode.prev = this.tail;
-//     this.tail.next = newNode; // makes the most recent "next" value, or last value => { value: value, next: null}
-//     this.tail = newNode; // different than above
-//     this.length++;
-//   };
+  append = value => {
+    const newNode = new Node(value);
+    newNode.prev = this.tail;
+    this.tail.next = newNode; // makes the most recent "next" value, or last value => { value: value, next: null}
+    this.tail = newNode; // different than above
+    this.length++;
+  };
 
-//   prepend = value => {
-//     const newNode = new Node(value);
-//     newNode.next = this.head; // pointer { value: value, next: this.head, prev: null}
-//     this.head.prev = newNode;
-//     this.head = newNode; // different than above
-//     this.length++;
-//   };
+  prepend = value => {
+    const newNode = new Node(value);
+    newNode.next = this.head; // pointer { value: value, next: this.head, prev: null}
+    this.head.prev = newNode;
+    this.head = newNode; // different than above
+    this.length++;
+  };
 
-//   printList = () => {
-//     const array = [];
-//     let currentNode = this.head;
-//     while (currentNode !== null) {
-//       array.push(currentNode.value);
-//       currentNode = currentNode.next; // traverses down the list by going to the next value
-//     }
-//     return array;
-//   };
+  printList = () => {
+    const array = [];
+    let currentNode = this.head;
+    while (currentNode !== null) {
+      array.push(currentNode.value);
+      currentNode = currentNode.next; // traverses down the list by going to the next value
+    }
+    return array;
+  };
 
-//   insert = (index, value) => {
-//     const newNode = new Node(value);
-//     // check params
-//     if (index >= this.length) {
-//       // if index is greater than the length, just add it to the end of the list
-//       return this.append(value);
-//     }
-//     const leaderNode = this.traverseToIndex(index - 1); // we want to get to the this.next node right before our index (index-1), because this node will be the "leader"
-//     // O(n)
-//     const follower = leaderNode.next; // this is the reference to the current value at our index of interest!
-//     leaderNode.next = newNode;
-//     newNode.prev = leaderNode;
-//     newNode.next = follower;
-//     follower.prev = newNode;
-//     this.length++;
-//   };
+  insert = (index, value) => {
+    const newNode = new Node(value);
+    // check params
+    if (index >= this.length) {
+      // if index is greater than the length, just add it to the end of the list
+      return this.append(value);
+    }
+    const leaderNode = this.traverseToIndex(index - 1); // we want to get to the this.next node right before our index (index-1), because this node will be the "leader"
+    // O(n)
+    const follower = leaderNode.next; // this is the reference to the current value at our index of interest!
+    leaderNode.next = newNode;
+    newNode.prev = leaderNode;
+    newNode.next = follower;
+    follower.prev = newNode;
+    this.length++;
+  };
 
-//   traverseToIndex = index => {
-//     // check params
-//     let counter = 0;
-//     let currentNode = this.head;
-//     while (counter !== index) {
-//       // O(n)
-//       // traverse nodes until the counter reaches the index
-//       currentNode = currentNode.next;
-//       counter++;
-//     }
-//     return currentNode; // return the current node at our index of interest
-//   };
+  traverseToIndex = index => {
+    // check params
+    let counter = 0;
+    let currentNode = this.head;
+    while (counter !== index) {
+      // O(n)
+      // traverse nodes until the counter reaches the index
+      currentNode = currentNode.next;
+      counter++;
+    }
+    return currentNode; // return the current node at our index of interest
+  };
 
-//   remove = index => {
-//     // check params
-//     const leaderNode = this.traverseToIndex(index - 1); // O(n)
-//     const unwantedNode = leaderNode.next; // node that I don't want
-//     leaderNode.next = unwantedNode.next; // pointer from unwanted node to the next node
-//     this.length--;
-//   };
-// }
+  remove = index => {
+    // check params
+    const leaderNode = this.traverseToIndex(index - 1); // O(n)
+    const unwantedNode = leaderNode.next; // node that I don't want
+    leaderNode.next = unwantedNode.next; // pointer from unwanted node to the next node
+    this.length--;
+  };
+}
 
 /* Common Interview Question - Reverse a Linked List! */
 class Node {
@@ -348,6 +348,7 @@ class LinkedList {
       second.next = first; /* third node => first */
       first = second; /* first node becomes second node */
       second = temp; /* second node becomes third node */
+      // 1 -> 2 -> 3 -> 4 -> 5... becomes 2 -> 3 -> 1 -> 4 -> 5...
     }
     this.head.next = null; // need to have the first value point to null so it's now the last value
     this.head = first;
@@ -366,7 +367,7 @@ console.log(myLinkedList.printList());
 // Explanation
 // We are changing the value of "first" and "second" every iteration of the loop, so that we change the pointers to be in the opposite direction
 //   Ex) [3,10,99,5,17]
-//   1) We start at elements two left-most elements
+//   1) We start at two left-most elements
 //   2) First we want to switch the pointer from L->R to R->L
 //   3) Then, we want to shift over 1 indices so that element 2 is now element 1, and element 3 is now element 2
 //   4) Repeat steps 1-3 (loop), until in step 4 when element 2 becomes null

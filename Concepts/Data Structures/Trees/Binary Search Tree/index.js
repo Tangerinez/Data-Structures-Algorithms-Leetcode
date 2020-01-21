@@ -3,7 +3,7 @@
 /* 
 Rules:
     - The child of a node to the right is larger than the parent (and constantly increases as you go down)
-    - The child of a node to the left  is smaller than the parent (and constantly decreases as you go down)
+    - The child of a node to the left is smaller than the parent (and constantly decreases as you go down)
     - A node can only have up to 2 children
 
 Advantages:
