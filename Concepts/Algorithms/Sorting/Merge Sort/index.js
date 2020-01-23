@@ -1,5 +1,5 @@
 /* 
-Divide and Conquer Algorithm It divides input array in two halves that calls itself for the two halves and then merges the two sorted halves.
+Divide and Conquer Algorithm: It divides input array in two halves that calls itself for the two halves and then merges the two sorted halves.
 // A stable sorting algorithm - if you have repeating elements (6,6), it will keep the original order
     - Insertion sort, Merge Sort, Bubble Sort
     - Ex) List of first and last name => If two people have same first name but different last name, then we don't we the same first names to get mixed up!

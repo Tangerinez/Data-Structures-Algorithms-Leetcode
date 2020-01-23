@@ -43,6 +43,12 @@
 
 /* Q7) What is React's Component Lifecycle? */
 // Initialization - When a component is first added to the DOM
+// constructor()
+// render()
+// componentDidMount()
 // Update - Every time a component's state or properties change
+// render()
+// componentDidUpdate()
 // Destruction - When the component is removed from the DOM
+// componentWillUnmount()
 // Each part of the lifecycle has its own lifecycle methods that help manage each phase

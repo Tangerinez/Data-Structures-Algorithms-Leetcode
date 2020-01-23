@@ -1,11 +1,13 @@
 /*
 BFS (Breadth First Search):
     - *** Great for UNWEIGHTED graphs ***
+    - Use a queue data structure
     - Start with root node, and then level by level, traverse items from left to right until you find the item you're looking for, or until the tree ends
     - Uses additional memory, since we need to track every node and it's children in order
     - Runtime Complexity: O(n)
     - Space Complexity: O(n)
 DFS:
+    - Use a stack data structure
     - Follows one branch of the tree down as many levels as possible until target node is found or the end is reached. It then goes back up to parent node and proceeds to do the same with all unexplored children
     - Lower memory usage than BFS, since you don't have to store all the child pointers at each level
     - "All the way down, and come back up"
@@ -15,7 +17,7 @@ DFS:
 BFS vs. DFS (When to use what?)
     - BFS:
         - Rule of thumb:
-            - If you have additional info on location of the target node and you know that the node is likely in the uppert level of a tree/graph, then BFS is better since it'll search through the lowest levels of the tree/graph first
+            - If you have additional info on location of the target node and you know that the node is likely in the upper level of a tree/graph, then BFS is better since it'll search through the lowest levels of the tree/graph first
         - Pros:
             - Shortest Path
             - Closer Nodes
@@ -84,7 +86,7 @@ class BinarySearchTree {
   breadthFirstSearch = () => {
     let currentNode = this.root;
     let list = [];
-    let queue = []; // using a queue data structure for keeping track of which nodes we have to check for
+    let queue = []; // *** using a queue data structure for keeping track of which nodes we have to check for
     queue.push(currentNode);
     while (queue.length > 0) {
       // as long as we have something in the queue
@@ -126,7 +128,7 @@ class BinarySearchTree {
   };
 
   depthFirstSearchPreorder = () => {
-    // using a stack data structure
+    // *** using a stack data structure
     return traversePreOrder([this.root], []);
   };
 
