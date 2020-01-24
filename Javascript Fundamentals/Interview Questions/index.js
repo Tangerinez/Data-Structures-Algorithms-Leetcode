@@ -113,7 +113,7 @@ let funcE = function() {
 // To simplify the process above, we'd use a promise
 // Nice to read, easy to debug
 const promise1 = new Promise(function(resolve, reject) {
-  // creat a Promise using the Promise constructor
+  // create a Promise using the Promise constructor
   setTimeout(function() {
     resolve("foo"); // when computation is successful, we use the resolve function
   }, 300);
@@ -130,7 +130,7 @@ setTimeout(function() {
 }, 0);
 console.log("b");
 console.log("c");
-// Order of the out put is b,c,a => setTimeout() is async, and you have to wait for everything in the stack to finish before this event is completed
+// Order of the output is b,c,a => setTimeout() is async, and you have to wait for everything in the stack to finish before this event is completed
 
 /* Q10) What are closures and how do you use them? */
 // Closure gives you access to an outer function's scope from an inner function
