@@ -40,3 +40,6 @@ const isValidBST = (root, a = -Infinity, b = Infinity) => {
       isValidBST(root.right, root.val, b))
   );
 };
+
+// Runtime Complexity: O(n)
+// Space Complexity: O(n)
