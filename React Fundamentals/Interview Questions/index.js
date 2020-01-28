@@ -4,7 +4,7 @@
 // For every DOM object, there is a lightweight copy of that DOM object in the Virtual DOM
 // Manipulating the Virtual DOM is faster since it isn't directly rendering it to the client (like editing a blueprint)
 
-// Every time you render a JSX element, every Virtual DOM object gets updates
+// Every time you render a JSX element, every Virtual DOM object gets updated
 // React then compares the Virtual DOM to the snapshot of the Virtual DOM before it was updated ("diffing")
 // React identifies which Virtual DOM objects to change, and only updates those objects in the Real DOM
 
