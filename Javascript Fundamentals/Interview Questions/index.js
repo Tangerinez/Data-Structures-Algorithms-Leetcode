@@ -112,6 +112,8 @@ let funcE = function() {
 // If we have an async call which has to wait for something to happen, and once it comes back, you'd execute some callback function. Within this callback, you may do another async call... etc. etc. (Nested callbacks)
 // To simplify the process above, we'd use a promise
 // Nice to read, easy to debug
+
+// A promise is an object that may produce a single value some time in the future
 const promise1 = new Promise(function(resolve, reject) {
   // create a Promise using the Promise constructor
   setTimeout(function() {
