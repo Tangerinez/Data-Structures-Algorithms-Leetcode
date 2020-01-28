@@ -24,7 +24,7 @@ const isValidBST = (
 ) => {
   return (
     !root || // false if no values exist
-    (!(leftMax >= root.val || root.val >= rightMin) && // root value is a real number
+    (!(leftMax >= root.val || root.val >= rightMin) && // root value is a real number => if one of these 2 statements is true, then we are returning false!
     isValidBST(root.left, leftMax, root.val) && // check left child value against parent value
       isValidBST(root.right, root.val, rightMin)) // check right child value against right parent value
   );
