@@ -193,3 +193,39 @@ console.log(7 > 6 > 5);?
 x = 5;
 var x; // this declaration gets hoisted above x = 5 so that the variable assignment doesn't error out
 // let and const are not hoisted
+
+/* Q15) What are CSS Prepocessors? */
+// Allow us to use logic in our CSS code
+// Examples include SASS/LESS/Stylus
+/*
+- Use variables to create style guides and make global unification easy
+- Use mixins for browser standardization, responsive breakpoints, repeated equations
+  - Allow you to define styles in groups that can be re-used throughout your style sheet
+- Compression of the finalized output for page speed
+*/
+
+/* Q16) What is Event Bubbling in JS? */
+// Event Bubbling is when the innermost element first captures and handles the event before propagating/bubbling up through its ancestors to the document root
+// ^ Good because this allows us to use event delegation, which allows us to attach a single event listener to a parent element that will fire for all descendants matching a selector
+// In JQuery, $.on() allows you to attach an event handler for one or more events to whatever elements you select
+$("#dataTable tbody").on("click", "tr", function() {
+  console.log($(this).text());
+});
+// An event-delegation approach attaches an event handler to only one element, the tbody, and the event only needs to bubble up one level (from the clicked tr to tbody)
+
+/* Q17) Difference between a GET, POST, and PUT request? */
+// GET - Requesting data from a specific source
+// POST - Submitting data to be processed by a specific endpoint
+// PUT - Create or overwrite a resource at a particular URL that is known by the client
+// BONUS - XMLHttpRequest allows you to retrieve data from a URL without having to do a full page refresh
+
+/* Q17) How to improve Accessibility of a webpage? */
+/*
+1. Images/icons have alt text
+2. All form elements have labels
+3. Semantic HTML and meaningful selectors
+4. Avoid color only status indicators. Instead, supplement color with iconography or text for clarity to assist color-blindness
+5. Manage focus with overlays or route changes in an app
+6. All interactive elements should be focusable, so use elements like <button> and <a> for clickable/hoverable interactions
+7. Provide the ability to skip the navigation area
+*/
