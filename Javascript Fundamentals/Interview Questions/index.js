@@ -68,7 +68,7 @@ const profile = {
 /* Q6) What is Prototypal Inheritance? */
 // Every object has a property called a "prototype" that you can add methods and properties to it
 // When you create other objects (instances) from these objects, the newly created object will automatically inherit the properties of the parent
-// When you call a particular method on an object, it first looks at its own properties; if not there, then it looks in the parents
+// When you call a particular method on an object, it first looks at its own properties; if not there, then it looks in the parent's
 
 // ES5
 let car = function(model) {
